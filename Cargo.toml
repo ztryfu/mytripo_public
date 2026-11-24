@@ -3,6 +3,7 @@ name = "mytripo_public"
 version = "0.1.0"
 edition = "2024"
 description = "사진이나 턴어라운드 시트에서 Blender 용 로우폴리 .glb 를 만드는 macOS 앱 (TRELLIS.2)"
+license = "MIT"
 publish = false
 
 [dependencies]

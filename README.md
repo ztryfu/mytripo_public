@@ -160,7 +160,7 @@ blender -b --factory-startup --python-exit-code 1 --python scripts/blender_anim.
 - 예시의 사람 메시와 등불 메시는 같은 설정으로 미리 생성한 메시를 앱의 후처리에 넣은 결과입니다. 오토바이는 이 저장소의 설치 스크립트와 앱으로 처음부터 생성했습니다.
 
 ### 라이선스와 외부 구성 요소
-이 저장소의 코드는 자유롭게 쓰고, 고치고, 배포해도 됩니다. 도움이 되었다면 ⭐ 스타 하나만 눌러 주세요.
+이 저장소의 코드는 [MIT License](LICENSE)입니다. 자유롭게 쓰고, 고치고, 배포해도 됩니다. 도움이 되었다면 ⭐ 스타 하나만 눌러 주세요.
 
 이 저장소는 아래 구성 요소의 코드와 가중치를 담지 않습니다. 설치 스크립트가 각 원 저장소에서 받습니다.
 - [TRELLIS.2](https://github.com/microsoft/TRELLIS.2) 코드와 가중치: MIT (Microsoft)
@@ -292,7 +292,7 @@ Run `bash scripts/verify.sh`. It passes when the last line is `✓ verify passed
 - The app's UI text and the code comments are in Korean.
 
 ### License and third-party components
-You may freely use, modify and redistribute the code in this repository. If it helps you, please leave a ⭐ star.
+The code in this repository is under the [MIT License](LICENSE). You may freely use, modify and redistribute it. If it helps you, please leave a ⭐ star.
 
 This repository contains none of the code or weights below. The setup script fetches them from their own repositories.
 - [TRELLIS.2](https://github.com/microsoft/TRELLIS.2) code and weights: MIT (Microsoft)
