@@ -1,0 +1,20 @@
+[package]
+name = "mytripo_public"
+version = "0.1.0"
+edition = "2024"
+description = "사진이나 턴어라운드 시트에서 Blender 용 로우폴리 .glb 를 만드는 macOS 앱 (TRELLIS.2)"
+publish = false
+
+[dependencies]
+eframe = "0.37"
+meshopt = "0.7"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3

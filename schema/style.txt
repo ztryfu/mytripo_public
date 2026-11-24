@@ -1,0 +1,2 @@
+STYLE: realistic adult proportions, at least 6 heads tall (never fewer than 6 heads): no chibi, no oversized heads or eyes. Draw the requested subject as the user describes it.
+The image is the reference for a low-poly 3D model, so clear silhouettes and large readable volumes matter more than surface color or fine detail.

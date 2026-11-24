@@ -1,0 +1,333 @@
+{
+  "subject": "other",
+  "height_m": 1.2,
+  "side_facing": "left",
+  "images": [
+    {
+      "index": 0,
+      "view": "front",
+      "joints": [
+        {
+          "name": "steering_head",
+          "x": 0.535,
+          "y": 0.33
+        },
+        {
+          "name": "front_axle",
+          "x": 0.535,
+          "y": 0.7
+        },
+        {
+          "name": "front_contact",
+          "x": 0.535,
+          "y": 0.83
+        },
+        {
+          "name": "tail",
+          "x": 0.535,
+          "y": 0.38
+        },
+        {
+          "name": "rear_axle",
+          "x": 0.535,
+          "y": 0.7
+        },
+        {
+          "name": "rear_contact",
+          "x": 0.535,
+          "y": 0.83
+        },
+        {
+          "name": "grip_l",
+          "x": 0.868,
+          "y": 0.33
+        },
+        {
+          "name": "grip_r",
+          "x": 0.196,
+          "y": 0.33
+        },
+        {
+          "name": "mirror_l",
+          "x": 0.85,
+          "y": 0.255
+        },
+        {
+          "name": "mirror_r",
+          "x": 0.224,
+          "y": 0.255
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "view": "side",
+      "joints": []
+    },
+    {
+      "index": 2,
+      "view": "back",
+      "joints": [
+        {
+          "name": "steering_head",
+          "x": 0.493,
+          "y": 0.31
+        },
+        {
+          "name": "front_axle",
+          "x": 0.493,
+          "y": 0.7
+        },
+        {
+          "name": "front_contact",
+          "x": 0.493,
+          "y": 0.83
+        },
+        {
+          "name": "tail",
+          "x": 0.493,
+          "y": 0.38
+        },
+        {
+          "name": "rear_axle",
+          "x": 0.493,
+          "y": 0.7
+        },
+        {
+          "name": "rear_contact",
+          "x": 0.493,
+          "y": 0.83
+        },
+        {
+          "name": "grip_l",
+          "x": 0.17,
+          "y": 0.33
+        },
+        {
+          "name": "grip_r",
+          "x": 0.816,
+          "y": 0.33
+        },
+        {
+          "name": "mirror_l",
+          "x": 0.195,
+          "y": 0.255
+        },
+        {
+          "name": "mirror_r",
+          "x": 0.79,
+          "y": 0.255
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "name": "frame",
+      "kind": "torso",
+      "side": "center",
+      "chain": [
+        "tail",
+        "steering_head"
+      ]
+    },
+    {
+      "name": "front_fork",
+      "kind": "leg",
+      "side": "center",
+      "chain": [
+        "steering_head",
+        "front_axle",
+        "front_contact"
+      ]
+    },
+    {
+      "name": "rear_swingarm",
+      "kind": "leg",
+      "side": "center",
+      "chain": [
+        "tail",
+        "rear_axle",
+        "rear_contact"
+      ]
+    },
+    {
+      "name": "handlebar_l",
+      "kind": "arm",
+      "side": "left",
+      "chain": [
+        "steering_head",
+        "grip_l"
+      ]
+    },
+    {
+      "name": "handlebar_r",
+      "kind": "arm",
+      "side": "right",
+      "chain": [
+        "steering_head",
+        "grip_r"
+      ]
+    },
+    {
+      "name": "mirror_l",
+      "kind": "prop",
+      "side": "left",
+      "chain": [
+        "grip_l",
+        "mirror_l"
+      ]
+    },
+    {
+      "name": "mirror_r",
+      "kind": "prop",
+      "side": "right",
+      "chain": [
+        "grip_r",
+        "mirror_r"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "front_wheel",
+      "shape": "wheel",
+      "x0": 0.034,
+      "y0": 0.505,
+      "x1": 0.29,
+      "y1": 0.827,
+      "front_x0": 0.433,
+      "front_x1": 0.644
+    },
+    {
+      "name": "rear_wheel",
+      "shape": "wheel",
+      "x0": 0.679,
+      "y0": 0.494,
+      "x1": 0.945,
+      "y1": 0.829,
+      "front_x0": 0.42,
+      "front_x1": 0.64
+    },
+    {
+      "name": "front_fork",
+      "shape": "block",
+      "x0": 0.142,
+      "y0": 0.488,
+      "x1": 0.249,
+      "y1": 0.69,
+      "front_x0": 0.373,
+      "front_x1": 0.7
+    },
+    {
+      "name": "front_fairing",
+      "shape": "block",
+      "x0": 0.117,
+      "y0": 0.333,
+      "x1": 0.293,
+      "y1": 0.482,
+      "front_x0": 0.28,
+      "front_x1": 0.78
+    },
+    {
+      "name": "windscreen",
+      "shape": "block",
+      "x0": 0.156,
+      "y0": 0.224,
+      "x1": 0.313,
+      "y1": 0.39,
+      "front_x0": 0.38,
+      "front_x1": 0.7
+    },
+    {
+      "name": "handlebar",
+      "shape": "bar",
+      "x0": 0.288,
+      "y0": 0.3,
+      "x1": 0.381,
+      "y1": 0.362,
+      "front_x0": 0.18,
+      "front_x1": 0.88
+    },
+    {
+      "name": "mirrors",
+      "shape": "bar",
+      "x0": 0.337,
+      "y0": 0.235,
+      "x1": 0.405,
+      "y1": 0.305,
+      "front_x0": 0.144,
+      "front_x1": 0.929
+    },
+    {
+      "name": "tank",
+      "shape": "block",
+      "x0": 0.337,
+      "y0": 0.327,
+      "x1": 0.571,
+      "y1": 0.46,
+      "front_x0": 0.3,
+      "front_x1": 0.73
+    },
+    {
+      "name": "side_panels",
+      "shape": "block",
+      "x0": 0.22,
+      "y0": 0.425,
+      "x1": 0.478,
+      "y1": 0.597,
+      "front_x0": 0.27,
+      "front_x1": 0.8
+    },
+    {
+      "name": "seat",
+      "shape": "block",
+      "x0": 0.547,
+      "y0": 0.327,
+      "x1": 0.884,
+      "y1": 0.482,
+      "front_x0": 0.38,
+      "front_x1": 0.68
+    },
+    {
+      "name": "tail",
+      "shape": "block",
+      "x0": 0.737,
+      "y0": 0.333,
+      "x1": 0.916,
+      "y1": 0.442,
+      "front_x0": 0.4,
+      "front_x1": 0.66
+    },
+    {
+      "name": "engine_frame",
+      "shape": "block",
+      "x0": 0.293,
+      "y0": 0.46,
+      "x1": 0.684,
+      "y1": 0.767,
+      "front_x0": 0.25,
+      "front_x1": 0.81
+    },
+    {
+      "name": "swingarm",
+      "shape": "block",
+      "x0": 0.6,
+      "y0": 0.5,
+      "x1": 0.75,
+      "y1": 0.64,
+      "front_x0": 0.4,
+      "front_x1": 0.66
+    },
+    {
+      "name": "exhaust",
+      "shape": "block",
+      "x0": 0.605,
+      "y0": 0.568,
+      "x1": 0.845,
+      "y1": 0.723,
+      "front_x0": 0.22,
+      "front_x1": 0.8
+    }
+  ]
+}

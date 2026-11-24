@@ -1,0 +1,170 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "subject",
+    "height_m",
+    "side_facing",
+    "images",
+    "parts",
+    "blocks"
+  ],
+  "properties": {
+    "subject": {
+      "type": "string",
+      "enum": [
+        "human",
+        "other"
+      ]
+    },
+    "height_m": {
+      "type": "number"
+    },
+    "side_facing": {
+      "type": "string",
+      "enum": [
+        "left",
+        "right",
+        "none"
+      ]
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "view",
+          "joints"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer"
+          },
+          "view": {
+            "type": "string",
+            "enum": [
+              "front",
+              "side",
+              "back"
+            ]
+          },
+          "joints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "x",
+                "y"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "kind",
+          "side",
+          "chain"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "head",
+              "torso",
+              "arm",
+              "leg",
+              "prop"
+            ]
+          },
+          "side": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right",
+              "center"
+            ]
+          },
+          "chain": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "shape",
+          "x0",
+          "y0",
+          "x1",
+          "y1",
+          "front_x0",
+          "front_x1"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "shape": {
+            "type": "string",
+            "enum": [
+              "wheel",
+              "block",
+              "bar"
+            ]
+          },
+          "x0": {
+            "type": "number"
+          },
+          "y0": {
+            "type": "number"
+          },
+          "x1": {
+            "type": "number"
+          },
+          "y1": {
+            "type": "number"
+          },
+          "front_x0": {
+            "type": "number"
+          },
+          "front_x1": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

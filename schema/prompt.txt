@@ -1,0 +1,32 @@
+You are given {N} photo(s) of one subject on a plain green or white background. Their indices are 0 to {LAST}.
+Open every photo with the Read tool, in this order:
+{IMAGES}
+Read the structure of the subject and answer with JSON that matches the output schema. Do not use any tool other than Read. Do not edit any file.
+
+- images: one entry per photo, with its index.
+  - view: "front" if the subject faces the camera, "back" if we see the subject's back, "side" if we see the subject in profile.
+  - joints: for "front" and "back" photos only. Use an empty list for a "side" photo.
+    x and y are normalized to the image width and height (0..1). The origin is the top-left corner and y points down.
+    Put each joint on the center line of the body or limb, inside the subject.
+    For a human use exactly these names: head_top, neck, pelvis,
+    shoulder_l, elbow_l, wrist_l, hand_l, shoulder_r, elbow_r, wrist_r, hand_r,
+    hip_l, knee_l, ankle_l, foot_l, hip_r, knee_r, ankle_r, foot_r.
+    "_l" is the subject's own left. In a front photo the subject's left is on the image's right side. In a back photo it is on the image's left side.
+    hand_* is the tip of the hand. foot_* is the sole of the foot. head_top is the top of the head.
+- subject: "human" for a person or a humanoid figure, otherwise "other".
+- height_m: the estimated real height of the subject in meters. Use 1.7 for an adult person when unsure.
+- side_facing: in the side photo, the image direction the subject's face and chest point to, "left" or "right". Use "none" when there is no side photo.
+- parts: one entry per body part.
+  - kind: head, torso, arm, leg, or prop. side: left, right, or center (the subject's own side).
+  - chain: the ordered joint names of the part, from where it attaches to the body to its tip.
+    For a human use: head [neck, head_top]; torso [pelvis, neck]; arm_l [shoulder_l, elbow_l, wrist_l, hand_l]; arm_r [shoulder_r, elbow_r, wrist_r, hand_r]; leg_l [hip_l, knee_l, ankle_l, foot_l]; leg_r [hip_r, knee_r, ankle_r, foot_r].
+    For a non-human subject, invent joint names and use them consistently in the joints lists.
+- blocks: for a non-human subject only. Use an empty list for a human.
+  Split the subject into the solid pieces a 3D artist would block out as separate low-poly parts, usually 6 to 14.
+  For a vehicle: each wheel, the front fairing or hood, the windscreen, the tank, the seat, the tail, the engine and frame, the exhaust, the handlebar, the mirrors, each bag, box or bundle.
+  Give each thin piece that sticks out (a mirror, a handlebar, a stand) its own block, so that its box does not include empty background between it and another piece.
+  Split a piece where its width changes a lot along its length. Do not merge a wide piece and a narrow piece into one block.
+  - shape: "wheel" for a wheel or a round disc whose axis points sideways. "bar" for a piece that is wider (left to right) than it is long, such as a handlebar, mirrors, or a bundle lying across the subject. Otherwise "block".
+  - x0, y0, x1, y1: the tight box around the piece in the side photo, normalized like joints (0..1, top-left origin).
+  - front_x0, front_x1: the left and right edges of the piece in the front photo (normalized x). Estimate them also when the piece is hidden behind another piece.
+  Together the side boxes must cover the whole subject in the side photo.

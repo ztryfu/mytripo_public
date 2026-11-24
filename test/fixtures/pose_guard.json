@@ -1,0 +1,241 @@
+{
+  "fps": 30,
+  "poses": {
+    "neutral": {
+      "bones": {
+        "upperarm_l": [
+          0,
+          72,
+          0
+        ],
+        "upperarm_r": [
+          0,
+          -72,
+          0
+        ],
+        "lowerarm_l": [
+          0,
+          0,
+          -8
+        ],
+        "lowerarm_r": [
+          0,
+          0,
+          8
+        ]
+      },
+      "curl": {
+        "l": 10,
+        "r": 10
+      }
+    },
+    "guard": {
+      "pelvis_loc": [
+        0,
+        -0.04,
+        -0.17
+      ],
+      "bones": {
+        "pelvis": [
+          14,
+          0,
+          -20
+        ],
+        "spine_01": [
+          12,
+          0,
+          3
+        ],
+        "spine_02": [
+          13,
+          0,
+          4
+        ],
+        "spine_03": [
+          11,
+          0,
+          5
+        ],
+        "neck_01": [
+          -20,
+          0,
+          2
+        ],
+        "Head": [
+          -26,
+          0,
+          4
+        ],
+        "clavicle_l": [
+          0,
+          10,
+          -14
+        ],
+        "clavicle_r": [
+          0,
+          -10,
+          14
+        ],
+        "upperarm_l": [
+          -50,
+          70,
+          0
+        ],
+        "upperarm_r": [
+          -58,
+          -70,
+          0
+        ],
+        "lowerarm_l": [
+          0,
+          0,
+          -22
+        ],
+        "lowerarm_r": [
+          0,
+          0,
+          30
+        ],
+        "hand_l": [
+          0,
+          15,
+          0
+        ],
+        "hand_r": [
+          0,
+          -15,
+          0
+        ]
+      },
+      "curl": {
+        "l": 32,
+        "r": 32
+      },
+      "feet": {
+        "l": [
+          0.1,
+          -0.22,
+          0,
+          -15
+        ],
+        "r": [
+          -0.12,
+          0.22,
+          0,
+          -40
+        ]
+      }
+    }
+  },
+  "clips": [
+    {
+      "name": "enter",
+      "from": "neutral",
+      "to": "guard",
+      "frames": 14,
+      "ease": "out_back",
+      "steps": [
+        {
+          "foot": "l",
+          "start": 0,
+          "end": 0.45,
+          "lift": 0.06
+        },
+        {
+          "foot": "r",
+          "start": 0.5,
+          "end": 0.95,
+          "lift": 0.06
+        }
+      ]
+    },
+    {
+      "name": "idle",
+      "pose": "guard",
+      "frames": 60,
+      "loop": true,
+      "waves": [
+        {
+          "key": "pelvis_loc",
+          "amp": [
+            0,
+            0,
+            0.006
+          ],
+          "phase": -1.5707963
+        },
+        {
+          "key": "spine_02",
+          "amp": [
+            1.5,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "spine_03",
+          "amp": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "neck_01",
+          "amp": [
+            -1.5,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "Head",
+          "amp": [
+            -1.5,
+            0,
+            1.5
+          ]
+        },
+        {
+          "key": "upperarm_l",
+          "amp": [
+            3,
+            0,
+            0
+          ],
+          "phase": 0.6
+        },
+        {
+          "key": "upperarm_r",
+          "amp": [
+            3,
+            0,
+            0
+          ],
+          "phase": 1.1
+        }
+      ]
+    },
+    {
+      "name": "exit",
+      "from": "guard",
+      "to": "neutral",
+      "frames": 18,
+      "ease": "in_out",
+      "steps": [
+        {
+          "foot": "l",
+          "start": 0,
+          "end": 0.45,
+          "lift": 0.06
+        },
+        {
+          "foot": "r",
+          "start": 0.5,
+          "end": 0.95,
+          "lift": 0.06
+        }
+      ]
+    }
+  ]
+}

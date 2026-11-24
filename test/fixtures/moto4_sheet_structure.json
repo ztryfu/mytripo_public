@@ -1,0 +1,334 @@
+{
+  "subject": "other",
+  "height_m": 1.15,
+  "side_facing": "left",
+  "images": [
+    {
+      "index": 0,
+      "view": "front",
+      "joints": [
+        {
+          "name": "front_wheel_center",
+          "x": 0.5,
+          "y": 0.746
+        },
+        {
+          "name": "rear_wheel_center",
+          "x": 0.5,
+          "y": 0.75
+        },
+        {
+          "name": "seat_center",
+          "x": 0.5,
+          "y": 0.4
+        },
+        {
+          "name": "tail_top",
+          "x": 0.5,
+          "y": 0.38
+        },
+        {
+          "name": "windscreen_top",
+          "x": 0.538,
+          "y": 0.249
+        },
+        {
+          "name": "handlebar_center",
+          "x": 0.53,
+          "y": 0.4
+        },
+        {
+          "name": "handlebar_l",
+          "x": 0.88,
+          "y": 0.41
+        },
+        {
+          "name": "handlebar_r",
+          "x": 0.19,
+          "y": 0.41
+        },
+        {
+          "name": "mirror_l",
+          "x": 0.83,
+          "y": 0.29
+        },
+        {
+          "name": "mirror_r",
+          "x": 0.245,
+          "y": 0.29
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "view": "side",
+      "joints": []
+    },
+    {
+      "index": 2,
+      "view": "back",
+      "joints": [
+        {
+          "name": "front_wheel_center",
+          "x": 0.464,
+          "y": 0.77
+        },
+        {
+          "name": "rear_wheel_center",
+          "x": 0.464,
+          "y": 0.77
+        },
+        {
+          "name": "seat_center",
+          "x": 0.464,
+          "y": 0.36
+        },
+        {
+          "name": "tail_top",
+          "x": 0.464,
+          "y": 0.37
+        },
+        {
+          "name": "windscreen_top",
+          "x": 0.464,
+          "y": 0.255
+        },
+        {
+          "name": "handlebar_center",
+          "x": 0.464,
+          "y": 0.4
+        },
+        {
+          "name": "handlebar_l",
+          "x": 0.13,
+          "y": 0.405
+        },
+        {
+          "name": "handlebar_r",
+          "x": 0.8,
+          "y": 0.405
+        },
+        {
+          "name": "mirror_l",
+          "x": 0.19,
+          "y": 0.295
+        },
+        {
+          "name": "mirror_r",
+          "x": 0.74,
+          "y": 0.295
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "name": "body",
+      "kind": "torso",
+      "side": "center",
+      "chain": [
+        "rear_wheel_center",
+        "seat_center",
+        "front_wheel_center"
+      ]
+    },
+    {
+      "name": "front",
+      "kind": "head",
+      "side": "center",
+      "chain": [
+        "front_wheel_center",
+        "windscreen_top"
+      ]
+    },
+    {
+      "name": "tail",
+      "kind": "prop",
+      "side": "center",
+      "chain": [
+        "seat_center",
+        "tail_top"
+      ]
+    },
+    {
+      "name": "handlebar_left",
+      "kind": "arm",
+      "side": "left",
+      "chain": [
+        "handlebar_center",
+        "handlebar_l",
+        "mirror_l"
+      ]
+    },
+    {
+      "name": "handlebar_right",
+      "kind": "arm",
+      "side": "right",
+      "chain": [
+        "handlebar_center",
+        "handlebar_r",
+        "mirror_r"
+      ]
+    },
+    {
+      "name": "front_wheel",
+      "kind": "leg",
+      "side": "center",
+      "chain": [
+        "seat_center",
+        "front_wheel_center"
+      ]
+    },
+    {
+      "name": "rear_wheel",
+      "kind": "leg",
+      "side": "center",
+      "chain": [
+        "seat_center",
+        "rear_wheel_center"
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "front_wheel",
+      "shape": "wheel",
+      "x0": 0.041,
+      "y0": 0.552,
+      "x1": 0.313,
+      "y1": 0.909,
+      "front_x0": 0.447,
+      "front_x1": 0.631
+    },
+    {
+      "name": "rear_wheel",
+      "shape": "wheel",
+      "x0": 0.67,
+      "y0": 0.546,
+      "x1": 0.95,
+      "y1": 0.912,
+      "front_x0": 0.45,
+      "front_x1": 0.58
+    },
+    {
+      "name": "front_fork",
+      "shape": "block",
+      "x0": 0.17,
+      "y0": 0.55,
+      "x1": 0.255,
+      "y1": 0.75,
+      "front_x0": 0.41,
+      "front_x1": 0.67
+    },
+    {
+      "name": "front_fender",
+      "shape": "block",
+      "x0": 0.095,
+      "y0": 0.545,
+      "x1": 0.232,
+      "y1": 0.6,
+      "front_x0": 0.45,
+      "front_x1": 0.62
+    },
+    {
+      "name": "front_fairing",
+      "shape": "block",
+      "x0": 0.135,
+      "y0": 0.338,
+      "x1": 0.475,
+      "y1": 0.82,
+      "front_x0": 0.26,
+      "front_x1": 0.82
+    },
+    {
+      "name": "windscreen",
+      "shape": "block",
+      "x0": 0.216,
+      "y0": 0.242,
+      "x1": 0.337,
+      "y1": 0.352,
+      "front_x0": 0.415,
+      "front_x1": 0.672
+    },
+    {
+      "name": "mirrors",
+      "shape": "bar",
+      "x0": 0.194,
+      "y0": 0.251,
+      "x1": 0.24,
+      "y1": 0.366,
+      "front_x0": 0.166,
+      "front_x1": 0.91
+    },
+    {
+      "name": "handlebar",
+      "shape": "bar",
+      "x0": 0.289,
+      "y0": 0.315,
+      "x1": 0.394,
+      "y1": 0.421,
+      "front_x0": 0.166,
+      "front_x1": 0.91
+    },
+    {
+      "name": "tank",
+      "shape": "block",
+      "x0": 0.356,
+      "y0": 0.338,
+      "x1": 0.6,
+      "y1": 0.497,
+      "front_x0": 0.3,
+      "front_x1": 0.7
+    },
+    {
+      "name": "seat",
+      "shape": "block",
+      "x0": 0.578,
+      "y0": 0.4,
+      "x1": 0.756,
+      "y1": 0.494,
+      "front_x0": 0.38,
+      "front_x1": 0.62
+    },
+    {
+      "name": "tail",
+      "shape": "block",
+      "x0": 0.74,
+      "y0": 0.315,
+      "x1": 0.896,
+      "y1": 0.456,
+      "front_x0": 0.38,
+      "front_x1": 0.62
+    },
+    {
+      "name": "license_bracket",
+      "shape": "block",
+      "x0": 0.82,
+      "y0": 0.414,
+      "x1": 0.956,
+      "y1": 0.594,
+      "front_x0": 0.42,
+      "front_x1": 0.58
+    },
+    {
+      "name": "engine_frame",
+      "shape": "block",
+      "x0": 0.324,
+      "y0": 0.476,
+      "x1": 0.778,
+      "y1": 0.815,
+      "front_x0": 0.3,
+      "front_x1": 0.7
+    },
+    {
+      "name": "exhaust",
+      "shape": "block",
+      "x0": 0.605,
+      "y0": 0.58,
+      "x1": 0.859,
+      "y1": 0.773,
+      "front_x0": 0.26,
+      "front_x1": 0.4
+    }
+  ]
+}
