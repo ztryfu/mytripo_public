@@ -6,6 +6,10 @@ A macOS app that turns photos or one turnaround sheet into a Blender-ready `.glb
 
 **[한국어](#한국어) · [English](#english)**
 
+자유롭게 쓰고, 고치고, 배포해도 됩니다. 도움이 되었다면 ⭐ 스타 하나만 눌러 주세요.
+
+Feel free to use, modify and redistribute it. If it helps you, please leave a ⭐ star.
+
 ## 예시 · Samples
 
 입력 시트(왼쪽), TRELLIS.2 메시(가운데), 로우폴리 판(오른쪽)입니다. 설정은 `1024_cascade` + remesh, seed 42 입니다.
@@ -46,7 +50,7 @@ Input sheet (left), TRELLIS.2 mesh (middle), low-poly version (right). Settings:
 ### 필요한 것
 - Apple Silicon Mac, 메모리 24 GB 이상 권장
 - Rust(`cargo`), [Blender](https://www.blender.org)(`brew install --cask blender`)
-- 로그인된 `codex` CLI(시트 생성)와 `claude` CLI(구조 읽기). 앱은 API 키를 받지 않습니다.
+- 로그인된 `claude` CLI(구조 읽기). `codex` CLI(시트 생성)는 선택입니다. 없으면 [그림을 직접 준비](#codex-없이-쓰기)합니다. 앱은 API 키를 받지 않습니다.
 - 로컬 모델: 환경 약 2 GB, 가중치 약 16 GB
 
 ### 로컬 모델 설치
@@ -58,6 +62,31 @@ Input sheet (left), TRELLIS.2 mesh (middle), low-poly version (right). Settings:
 정상이면 마지막 줄이 `✓ model ready: torch …, mps True, postprocess metal` 입니다. 위치는 `MYTRIPO_PUBLIC_MODEL_DIR`(기본 `~/Documents/mytripo_public/model`)입니다. 가중치는 첫 생성 때 Hugging Face 캐시에 내려받습니다.
 
 모델을 설치하지 않으면 앱은 사람형을 단면 로프트로, 사물을 부품 조립으로 만듭니다(예산 2000 삼각형).
+
+### codex 없이 쓰기
+`codex` CLI 는 시트를 그릴 때만 씁니다. `codex` 가 없으면 그림을 직접 준비해서 넣으면 됩니다. 어떤 도구(이미지 생성 서비스, Blender 렌더, 직접 그린 그림, 사진)로 만들어도 됩니다.
+
+**사진 1~3장으로 넣기**
+- 앞, 옆, 뒤에서 찍은 사진입니다. 한 장만 있어도 됩니다(사물은 옆, 사람은 앞).
+- 배경은 초록 또는 흰색 단색입니다. 그림자와 바닥이 없어야 합니다.
+- 대상 전체가 잘리지 않고 들어가야 합니다.
+
+**턴어라운드 시트 한 장으로 넣기**
+- 가로로 긴 그림 한 장에 같은 대상을 왼쪽부터 앞, 옆, 뒤, 위 순서로 한 줄에 놓습니다. 위는 없어도 됩니다. 권장 크기는 3072x1024 입니다.
+- 옆 모습은 그림의 왼쪽을 바라봅니다. 위 모습은 대상의 앞이 그림의 아래쪽을 향합니다.
+- 원근이 없는 직교 시점이고, 네 모습의 축척이 같습니다. 앞·옆·뒤는 머리 끝과 바닥 선이 같은 높이입니다.
+- 배경은 초록 단색(`#00B140`)입니다. 모습 사이와 그림 가장자리에 그림 너비의 5% 이상을 비웁니다. 앱은 이 빈 띠에서 칸을 자릅니다.
+- 그림자, 바닥, 글자, 화살표, 테두리를 넣지 않습니다.
+- 사람은 A포즈입니다. 팔은 몸통에서 30~40도 벌리고, 다리 사이를 띄우고, 손가락은 모읍니다.
+
+다른 이미지 생성 도구를 쓸 때는 위 조건을 프롬프트로 주면 됩니다. 앱이 `codex` 에 주는 프롬프트 원문은 `src/sheet.rs` 의 `RULES` 에 있습니다.
+
+준비한 그림은 창에 끌어 놓거나 아래처럼 넣습니다. 시점과 관절점을 읽는 `claude` CLI 는 이 경우에도 필요합니다.
+```bash
+cargo run --release -- --sheet-file my_sheet.png                          # 창에서 시작
+cargo run --release --example headless -- --sheet-file my_sheet.png       # 창 없이
+cargo run --release --example headless -- front.png side.png back.png    # 사진으로
+```
 
 ### 앱 실행
 ```bash
@@ -125,7 +154,7 @@ blender -b --factory-startup --python-exit-code 1 --python scripts/blender_anim.
 - 예시의 사람 메시와 등불 메시는 같은 설정으로 미리 생성한 메시를 앱의 후처리에 넣은 결과입니다. 오토바이는 이 저장소의 설치 스크립트와 앱으로 처음부터 생성했습니다.
 
 ### 라이선스와 외부 구성 요소
-이 저장소의 라이선스는 아직 정하지 않았습니다. 정하기 전에는 저작권법의 기본 규정이 적용됩니다.
+이 저장소의 코드는 자유롭게 쓰고, 고치고, 배포해도 됩니다. 도움이 되었다면 ⭐ 스타 하나만 눌러 주세요.
 
 이 저장소는 아래 구성 요소의 코드와 가중치를 담지 않습니다. 설치 스크립트가 각 원 저장소에서 받습니다.
 - [TRELLIS.2](https://github.com/microsoft/TRELLIS.2) 코드와 가중치: MIT (Microsoft)
@@ -152,7 +181,7 @@ blender -b --factory-startup --python-exit-code 1 --python scripts/blender_anim.
 ### Requirements
 - Apple Silicon Mac, 24 GB of memory or more recommended
 - Rust (`cargo`), [Blender](https://www.blender.org) (`brew install --cask blender`)
-- Logged-in `codex` CLI (sheet generation) and `claude` CLI (structure reading). The app takes no API keys.
+- Logged-in `claude` CLI (structure reading). The `codex` CLI (sheet generation) is optional; without it, [prepare the images yourself](#without-codex). The app takes no API keys.
 - Local model: about 2 GB for the environment, about 16 GB for the weights
 
 ### Install the local model
@@ -164,6 +193,31 @@ blender -b --factory-startup --python-exit-code 1 --python scripts/blender_anim.
 On success the last line is `✓ model ready: torch …, mps True, postprocess metal`. The location is `MYTRIPO_PUBLIC_MODEL_DIR` (default `~/Documents/mytripo_public/model`). Weights are downloaded into the Hugging Face cache on the first generation.
 
 Without the model, the app builds people as a cross-section loft and objects from extruded parts (2,000-triangle budget).
+
+### Without codex
+The `codex` CLI is only used to draw sheets. Without it, prepare the images yourself and feed them in. Any tool works: an image-generation service, a Blender render, a drawing, or photos.
+
+**As 1–3 photos**
+- Photos from the front, side and back. One is enough (side for an object, front for a person).
+- Solid green or white background, no shadows and no floor.
+- The whole subject is in frame, nothing cropped.
+
+**As one turnaround sheet**
+- One wide image with the same subject in a single row, left to right: front, side, back, top. The top view is optional. Recommended size is 3072x1024.
+- The side view faces the left edge of the image. In the top view the front of the subject points to the bottom edge.
+- Orthographic views with no perspective, all at the same scale. Front, side and back share the same top line and baseline.
+- Solid chroma green background (`#00B140`). Leave empty gaps of at least 5% of the image width between views and along every edge. The app splits the sheet at these gaps.
+- No shadows, floor, text, arrows or frames.
+- People stand in an A-pose: arms 30–40 degrees away from the torso, a clear gap between the legs, fingers together.
+
+With another image generator, give it these rules as the prompt. The exact prompt the app sends to `codex` is `RULES` in `src/sheet.rs`.
+
+Drop the image on the window or pass it as below. The `claude` CLI, which reads the views and joint points, is still needed.
+```bash
+cargo run --release -- --sheet-file my_sheet.png                          # start in the window
+cargo run --release --example headless -- --sheet-file my_sheet.png       # no window
+cargo run --release --example headless -- front.png side.png back.png    # from photos
+```
 
 ### Run the app
 ```bash
@@ -232,7 +286,7 @@ Run `bash scripts/verify.sh`. It passes when the last line is `✓ verify passed
 - The app's UI text and the code comments are in Korean.
 
 ### License and third-party components
-No license has been chosen for this repository yet. Until one is, default copyright applies.
+You may freely use, modify and redistribute the code in this repository. If it helps you, please leave a ⭐ star.
 
 This repository contains none of the code or weights below. The setup script fetches them from their own repositories.
 - [TRELLIS.2](https://github.com/microsoft/TRELLIS.2) code and weights: MIT (Microsoft)
